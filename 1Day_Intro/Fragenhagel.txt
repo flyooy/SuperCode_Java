@@ -1,0 +1,9 @@
+1. Java ist eine einfache, objektorientierte, verteilte, interpretierte, robuste, sichere, architekturneutrale, portable, performante, nebenläufige, dynamische Programmiersprache.
+2. Kompilieren ist der Prozess, bei dem der Quellcode, den ein Programmierer schreibt, in Maschinencode oder Bytecode geändert wird, der von einem Computer ausgeführt werden kann. 
+3. Ja, wenn du dein Programm veränderst, musst du es erneut kompilieren, bevor du die Änderungen ausführst. 
+4. 
+    4.1 Visual Studio Code
+    4.2 Java Development Kit (JDK): Enthält die notwendigen Tools und Bibliotheken zum Entwickeln, Kompilieren und Ausführen von Java-Programmen.
+5.  Die Java Virtual Machine (JVM) ist eine Laufzeitumgebung, die den in Bytecode kompilierten Java-Code ausführt.
+6. Das Java Development Kit (JDK) ist ein Software-Entwicklungspaket, das alles enthält, was du zum Entwickeln, Kompilieren, Debuggen und Ausführen von Java-Anwendungen benötigst. 
+7. Ein Terminal ist ein Textfeld, in dem du Computerbefehle eingeben und deren Ausgaben sehen kannst. Es ist wie ein Gespräch mit deinem Computer, bei dem du ihm Anweisungen gibst, was er tun soll. 

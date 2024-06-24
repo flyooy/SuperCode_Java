@@ -1,0 +1,7 @@
+cd ~/Desktop
+mkdir SuperCode
+cd SuperCode
+mkdir Grundlagen
+cd Grundlagen
+touch HelloWorld.java
+pwd
