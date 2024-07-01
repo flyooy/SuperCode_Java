@@ -9,28 +9,11 @@ public class SchereSteinPapier {
         
         Scanner scanner = new Scanner(System.in);
         
-       
-        
         while (true) {
             System.out.println("Wähle: 0 = Schere, 1 = Stein, 2 = Papier, 3 = Beenden");
             int personInput = scanner.nextInt();
             if (personInput == 3) {
-              
-                if (counterComp > counterPerson)
-
-                {
-                    System.out.println("Das spiel wurde beendet.");
-                    System.out.println(
-                            "Computer gewonnt mit " + counterComp + " Punkten. Nochmals spiel, um zu gewinnen ");
-                } else if (counterComp < counterPerson)
-                {
-                    System.out.println("Das spiel wurde beendet.");
-                    System.out.println("Du gewonnst mit " + counterPerson + " Punkten. Hübscher Junge, komm zurück, um noch zu gewinnen.");
-                } else if (counterComp == counterPerson && counterComp !=0 && counterPerson!=0) {
-                    System.out.println("Das spiel wurde beendet.");
-                    System.out.println("Es ist unentschieden, und du bist nicht schlecht");
-            } else { System.out.println("Das spiel wurde beendet."); }
-                
+                lastMessageAndWhoWon();
                 break;
             }
             
@@ -88,13 +71,28 @@ public class SchereSteinPapier {
             System.out.println("Wow, 3mal gewonnt? + 1 point Extra");
             counterPerson++;
             counterThreeWinnerPerson = 0;
-        } 
-       
+        }
+
         if (counterThreeWinnerComp == 3) {
             System.out.println("Wow, 3mal gewonnt? + 1 point Extra");
             counterComp++;
             counterThreeWinnerComp = 0;
-        } 
+        }
+    }
+    
+    public static void lastMessageAndWhoWon() {
+        if (counterComp > counterPerson)
+        {
+            System.out.println("Das spiel wurde beendet.");
+            System.out.println( "Computer gewonnt mit " + counterComp + " Punkten. Nochmals spiel, um zu gewinnen ");
+        } else if (counterComp < counterPerson){
+            System.out.println("Das spiel wurde beendet.");
+            System.out.println("Du gewonnst mit " + counterPerson + " Punkten. Hübscher Junge, komm zurück, um noch zu gewinnen.");
+        } else if (counterComp == counterPerson && counterComp !=0 && counterPerson!=0) {
+            System.out.println("Das spiel wurde beendet.");
+            System.out.println("Es ist unentschieden, und du bist nicht schlecht");
+        } else  System.out.println("Das spiel wurde beendet."); 
+        
     }
     
 }
