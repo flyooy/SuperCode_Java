@@ -3,7 +3,7 @@ public class Fahrer {
     private String nachname;
     private int alter;
     
-    public Fahrer(String vorname, String nachame, int alter) {
+    public Fahrer(String vorname, String nachname, int alter) {
         this.vorname = vorname;
         this.nachname = nachname;
         this.alter = alter;
