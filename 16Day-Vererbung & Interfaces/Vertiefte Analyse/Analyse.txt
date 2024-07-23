@@ -1,0 +1,60 @@
+
+Vererbung: Vererbung ist ein Konzept in der objektorientierten Programmierung (OOP), bei dem eine Klasse (Unterklasse) die Eigenschaften und Methoden einer anderen Klasse (Oberklasse) übernimmt.
+
+Interfaces: Ein Interface ist ein Vertrag in der OOP, der nur die Signaturen von Methoden definiert, ohne deren Implementierungen. Klassen, die ein Interface implementieren, müssen diese Methoden bereitstellen.
+
+    Unterschiede:
+
+	•	Implementierung vs. Definition:
+	•	Vererbung übernimmt Implementierungen und Eigenschaften von Oberklassen.
+	•	Interfaces definieren nur Methodensignaturen, ohne Implementierungen.
+	•	Hierarchie:
+	•	Vererbung schafft eine strikte Klassenhierarchie.
+	•	Interfaces ermöglichen flexible Beziehungen zwischen Klassen, unabhängig von der Hierarchie.
+	•	Mehrfachvererbung:
+	•	Java unterstützt keine Mehrfachvererbung von Klassen, aber eine Klasse kann mehrere Interfaces implementieren.
+
+    Gemeinsamkeiten:
+
+	•	Beide Konzepte dienen der Wiederverwendbarkeit und Strukturierung von Code.
+	•	Sowohl Vererbung als auch Interfaces fördern Polymorphismus.
+
+    Vererbung sollte verwendet werden, wenn:
+
+	•	Es eine natürliche “ist-ein” Beziehung gibt (z.B. ein Hund “ist ein” Tier).
+	•	Code-Wiederverwendung von bestehenden Klassen sinnvoll ist.
+	•	Eine stabile Klassenhierarchie aufgebaut werden soll.
+
+    Interfaces sollten verwendet werden, wenn:
+
+	•	Flexibilität und lose Kopplung benötigt werden.
+	•	Verschiedene Klassen gemeinsame Fähigkeiten teilen sollen, ohne dass eine Hierarchie erforderlich ist.
+	•	Mehrfachvererbung notwendig ist (durch Implementierung mehrerer Interfaces).
+
+javaCode Beispiel fur kombinieren beide Konzepte
+
+    abstract class Fahrzeug {
+    abstract void fahren();
+ }
+
+    interface Elektrisch {
+    void aufladen();
+ }
+
+    class ElektroAuto extends Fahrzeug implements Elektrisch {
+    void fahren() {
+        System.out.println("Das Elektroauto fährt");
+    }
+
+    public void aufladen() {
+        System.out.println("Das Elektroauto lädt auf");
+    }
+ }
+
+    public class Main {
+    public static void main(String[] args) {
+        ElektroAuto auto = new ElektroAuto();
+        auto.fahren();
+        auto.aufladen();
+    }
+ }
