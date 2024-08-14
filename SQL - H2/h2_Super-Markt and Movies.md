@@ -110,6 +110,7 @@ From Products
 Group by Kategorie
 Order by Average_Price
 Limit 1;
+
 /* 5 - **Produkte, die teurer als der Durchschnitt ihrer Kategorie sind**/
 Select  NAME, Kategorie, Price
 FROM Products
@@ -118,6 +119,7 @@ WHERE Price > (
     FROM Products p2
     WHERE p2.Kategorie = Products.Kategorie
 )
+
 /* 6 - **Kategorien mit den meisten abgelaufenen Produkten***/
 Select  Kategorie, Count(*)
 From Products
@@ -125,22 +127,52 @@ Where ExpirationDate <  CURDATE()
 Group by Kategorie;
 
 /* 7 - **Produkte mit der höchsten Haltbarkeit in ihrer Kategorie***/
-/* 8  - **Produkte mit der höchsten Haltbarkeit in ihrer Kategorie***/
-/* 9 - **Durchschnittliche Haltbarkeit (Tage) pro Kategorie***/
-/* 10 - **Durchschnittlicher Preis für Produkte, die nach 2023 ablaufen***/
-/* 11 - **Produkte mit Preis über dem Durchschnitt, sortiert nach Haltbarkeit***/
-/* 12 - **Teuerstes Produkt in jeder Kategorie finden***/
-/* 13 - Produkte anzeigen, deren Preis über dem Durchschnittspreis aller Produkte liegt*/
+Select Name, Max(DATEDIFF('DAY', ExpirationDate,CURDATE() )) as Max_ExpirationDate
+From Products
+Group by Name
+Order by Max_ExpirationDate;
 
-    
-    
-    
-    
-   
-    
-    
-    
-   
-    
+/* 8 - **Durchschnittliche Haltbarkeit (Tage) pro Kategorie***/
+Select Kategorie, AVG(DATEDIFF('DAY', ExpirationDate,CURDATE() )) as Avg_Days_To_Expire
+From Products
+Group by Kategorie;
+
+/* 9 - **Durchschnittlicher Preis für Produkte, die nach 2023 ablaufen***/
+Select Kategorie, AVG(Price) as Avg_Price
+From Products
+Where ExpirationDate > '2023-12-31'
+Group by Kategorie;
+
+/* 10 - **Produkte mit Preis über dem Durchschnitt, sortiert nach Haltbarkeit***/
+Select *
+From Products p1
+Where Price > (
+    Select AVG(p2.Price)
+    From Products p2
+)
+Order by ExpirationDate;
+
+/* 11 - **Teuerstes Produkt in jeder Kategorie finden***/
+Select *
+From Products p1
+Where Price = (
+    Select Max(p2.Price)
+    From Products p2
+    Where p2.Kategorie = p1.Kategorie
+)
+/* 12 - Produkte anzeigen, deren Preis über dem Durchschnittspreis aller Produkte liegt*/
+Select  *
+From Products
+Where Price > (
+    Select AVG(Price)
+    From Products 
+)
+
+/* 13 - Produkte, die innerhalb der nächsten 7 Tage ablaufen*/
+SELECT *
+FROM Products
+WHERE ExpirationDate >= CURDATE()
+  AND ExpirationDate <= CURDATE() + INTERVAL '7' DAY;
+
 
 ```
