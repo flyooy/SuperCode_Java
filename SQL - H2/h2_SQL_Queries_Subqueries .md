@@ -1,4 +1,6 @@
 ## 1. SQL - Queries & Subqueries
+
+
 ```sql
 CREATE TABLE Kategorie (
     KategorieID INT PRIMARY KEY AUTO_INCREMENT,
